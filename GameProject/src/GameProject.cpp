@@ -1,7 +1,10 @@
 #include "GameProject.h"
 #include "SdkCameraMan.h"
+#include "SdkSample.h"
 
 using namespace Ogre;
+using namespace OgreBites;
+
 
 //-------------------------------------------------------------------------------------
 GameProject::GameProject(void)
@@ -16,6 +19,7 @@ bool GameProject::frameRenderingQueued(Ogre::FrameEvent const& evt)
 {
     core->addTime(evt.timeSinceLastFrame);
     return BaseApplication::frameRenderingQueued(evt);
+    
 }
 
 bool GameProject::keyPressed(const OIS::KeyEvent &arg)
@@ -92,22 +96,27 @@ void GameProject::createGrassMesh(void)
 
 //-------------------------------------------------------------------------------------
 void GameProject::createScene(void)
-{
+{    
+    core->create(mCamera);
     createGrassMesh();
     mSceneMgr->setAmbientLight(Ogre::ColourValue::White);
- 
-	mCamera->setPosition(150, 50, 150);
-	mCamera->lookAt(0, 0, 0);
 
     Ogre::Plane plane;
 	plane.normal = Ogre::Vector3::UNIT_Y;
 	plane.d = 0;
  
+    mCameraMan->setStyle(OgreBites::CS_MANUAL);
+
 	Ogre::MeshManager::getSingleton().createPlane("floor", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, plane, 450.0f, 450.0f, 10, 10, true, 1, 50.0f, 50.0f, Ogre::Vector3::UNIT_Z);
 	Ogre::Entity* planeEnt = mSceneMgr->createEntity("plane", "floor");
 	planeEnt->setMaterialName("Examples/Rockwall");
 	planeEnt->setCastShadows(false);
 	mSceneMgr->getRootSceneNode()->createChildSceneNode()->attachObject(planeEnt);
+
+    Light* light = mSceneMgr->createLight();
+	light->setType(Light::LT_POINT);
+	light->setPosition(-10, 40, 20);
+	light->setSpecularColour(ColourValue::White);
  
   /*  
 	Ogre::Entity* grass = mSceneMgr->createEntity("grass", "GrassBladesMesh");
@@ -135,7 +144,7 @@ void GameProject::createScene(void)
 		sg->build();
 	}
     */
-    core->create(mCamera);
+
 }
 
 
