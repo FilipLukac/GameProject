@@ -1,6 +1,8 @@
 #include "GameProject.h"
 #include "SdkCameraMan.h"
 #include "SdkSample.h"
+#include <CEGUI.h>
+#include <RendererModules/Ogre/CEGUIOgreRenderer.h>
 
 using namespace Ogre;
 using namespace OgreBites;
