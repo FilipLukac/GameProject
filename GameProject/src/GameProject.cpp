@@ -36,7 +36,13 @@ bool GameProject::keyReleased(const OIS::KeyEvent& evt)
    {
         core->injectKeyUp(evt);
         if (m_info["Help"] != "" && (evt.key == OIS::KC_H || evt.key == OIS::KC_F1))
-            mTrayMgr->showOkDialog("Help", m_info["Help"]);
+        {
+            for (Ogre::NameValuePairList::iterator itr = getInfo().begin(); itr != getInfo().end(); itr++)
+            {
+                if (itr->first == "Help")
+                    mTrayMgr->showOkDialog("Help", itr->second);
+            }
+        }
    }
     return BaseApplication::keyReleased(evt);
 }
