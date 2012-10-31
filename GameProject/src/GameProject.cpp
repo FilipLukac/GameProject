@@ -15,6 +15,8 @@ GameProject::GameProject(void)
 //-------------------------------------------------------------------------------------
 GameProject::~GameProject(void)
 {
+    if (mMouseCursor)
+        delete mMouseCursor;
 }
 
 bool GameProject::frameRenderingQueued(Ogre::FrameEvent const& evt)
