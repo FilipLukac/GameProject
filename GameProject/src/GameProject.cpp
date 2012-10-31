@@ -30,20 +30,23 @@ bool GameProject::keyPressed(const OIS::KeyEvent &arg)
     return BaseApplication::keyPressed(arg);
 }
 
+Ogre::String GameProject::getValueFromKey(Ogre::NameValuePairList& list, Ogre::String& key)
+{
+    Ogre::NameValuePairList::iterator itr = list.find(key);
+    if (itr != list.end())
+        return itr->second; 
+    return NULL;
+}
+
 bool GameProject::keyReleased(const OIS::KeyEvent& evt)
 {
-   if (!mTrayMgr->isDialogVisible())
-   {
+    Ogre::String str = "Help";
+    if (!mTrayMgr->isDialogVisible())
+    {
         core->injectKeyUp(evt);
         if (m_info["Help"] != "" && (evt.key == OIS::KC_H || evt.key == OIS::KC_F1))
-        {
-            for (Ogre::NameValuePairList::iterator itr = getInfo().begin(); itr != getInfo().end(); itr++)
-            {
-                if (itr->first == "Help")
-                    mTrayMgr->showOkDialog("Help", itr->second);
-            }
-        }
-   }
+             mTrayMgr->showOkDialog("Help", getValueFromKey(getInfo(), str));
+    }
     return BaseApplication::keyReleased(evt);
 }
 
@@ -108,7 +111,7 @@ void GameProject::createGrassMesh(void)
 //-------------------------------------------------------------------------------------
 void GameProject::createScene(void)
 {    
-    this->setInfoStr("Test");
+    this->setInfoStr("TMUIHAHAHAHAHHAHAHA");
     this->insertHelpInfo(this->getStrInfo());
     core->create(mCamera);
     createGrassMesh();

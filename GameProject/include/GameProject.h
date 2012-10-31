@@ -39,6 +39,9 @@ public:
     void setInfoStr(Ogre::String str) { m_strInfo = str; }
     Ogre::String getStrInfo() const { return m_strInfo; }
 
+private:
+    Ogre::String getValueFromKey(Ogre::NameValuePairList& list, Ogre::String& key);
+
 protected:
     virtual void createScene(void);
     virtual void createGrassMesh(void);
