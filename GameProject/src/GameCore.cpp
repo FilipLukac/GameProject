@@ -165,10 +165,10 @@ void GameCore::injectMouseDown(const OIS::MouseEvent& evt, OIS::MouseButtonID id
     if (mSwordsDrawn && (mTopAnimID == ANIM_IDLE_TOP || mTopAnimID == ANIM_RUN_TOP))
     {
 	    // if swords are out, and character's not doing something weird, then SLICE!
-	    if (id == OIS::MB_Left) 
+        if (id == OIS::MB_Left) 
             setTopAnimation(ANIM_SLICE_VERTICAL, true);
 
-	    else if (id == OIS::MB_Right) 
+        else if (id == OIS::MB_Right) 
             setTopAnimation(ANIM_SLICE_HORIZONTAL, true);
 
         mTimer = 0;
