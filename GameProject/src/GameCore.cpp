@@ -8,9 +8,6 @@
 #include "OgreSkeleton.h"
 
 using namespace Ogre;
-/*
-
-*/
 
 void GameCore::create(Camera *cam)
 {

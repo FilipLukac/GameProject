@@ -34,6 +34,11 @@ public:
     GameProject(void);
     virtual ~GameProject(void);
 
+    // Helper functions for VALUE in std::map<string, string(value)>
+    Ogre::NameValuePairList& getInfo() { return m_info; }
+    void setInfoStr(Ogre::String str) { m_strInfo = str; }
+    Ogre::String getStrInfo() const { return m_strInfo; }
+
 protected:
     virtual void createScene(void);
     virtual void createGrassMesh(void);
@@ -42,7 +47,14 @@ protected:
     virtual bool keyReleased(const OIS::KeyEvent& evt);
     virtual bool mouseMoved(const OIS::MouseEvent& evt);
     virtual bool mousePressed(const OIS::MouseEvent& arg, OIS::MouseButtonID id);
+
+    void insertHelpInfo(Ogre::String& str) { m_info["Help"] = str;; }
+    // custom variables
     GameCore *core;
+
+    // Help dialog
+    Ogre::NameValuePairList m_info;
+    Ogre::String m_strInfo;
 };
 
 #endif // #ifndef __GameProject_h_

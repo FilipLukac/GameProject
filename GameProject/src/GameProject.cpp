@@ -9,6 +9,8 @@ using namespace OgreBites;
 //-------------------------------------------------------------------------------------
 GameProject::GameProject(void)
 {
+    this->setInfoStr("Test");
+    this->insertHelpInfo(this->getStrInfo());
 }
 //-------------------------------------------------------------------------------------
 GameProject::~GameProject(void)
@@ -31,7 +33,11 @@ bool GameProject::keyPressed(const OIS::KeyEvent &arg)
 bool GameProject::keyReleased(const OIS::KeyEvent& evt)
 {
    if (!mTrayMgr->isDialogVisible())
+   {
         core->injectKeyUp(evt);
+        if (m_info["Help"] != "" && (evt.key == OIS::KC_H || evt.key == OIS::KC_F1))
+            mTrayMgr->showOkDialog("Help", m_info["Help"]);
+   }
     return BaseApplication::keyReleased(evt);
 }
 
