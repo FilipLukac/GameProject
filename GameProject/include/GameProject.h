@@ -48,7 +48,7 @@ protected:
     virtual bool mouseMoved(const OIS::MouseEvent& evt);
     virtual bool mousePressed(const OIS::MouseEvent& arg, OIS::MouseButtonID id);
 
-    void insertHelpInfo(Ogre::String& str) { m_info["Help"] = str;; }
+    void insertHelpInfo(Ogre::String& str) { m_info["Help"] = str; }
     // custom variables
     GameCore *core;
 

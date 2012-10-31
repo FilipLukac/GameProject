@@ -9,8 +9,8 @@ using namespace OgreBites;
 //-------------------------------------------------------------------------------------
 GameProject::GameProject(void)
 {
-    this->setInfoStr("Test");
-    this->insertHelpInfo(this->getStrInfo());
+    m_info["Help"] = "";
+    m_strInfo = "";
 }
 //-------------------------------------------------------------------------------------
 GameProject::~GameProject(void)
@@ -102,6 +102,8 @@ void GameProject::createGrassMesh(void)
 //-------------------------------------------------------------------------------------
 void GameProject::createScene(void)
 {    
+    this->setInfoStr("Test");
+    this->insertHelpInfo(this->getStrInfo());
     core->create(mCamera);
     createGrassMesh();
     mSceneMgr->setAmbientLight(Ogre::ColourValue::White);
