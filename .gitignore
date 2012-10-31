@@ -8,6 +8,11 @@
 *.sln
 *.ncb
 *.vcproj
+*.htm
+*.obj
+*.pdb
+*.idb
+*.suo
 
 # Compiled Static libraries
 *.lai
