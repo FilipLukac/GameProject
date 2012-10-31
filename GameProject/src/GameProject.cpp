@@ -1,8 +1,6 @@
 #include "GameProject.h"
 #include "SdkCameraMan.h"
 #include "SdkSample.h"
-#include <CEGUI.h>
-#include <RendererModules/Ogre/CEGUIOgreRenderer.h>
 
 using namespace Ogre;
 using namespace OgreBites;
@@ -42,6 +40,8 @@ bool GameProject::mouseMoved(const OIS::MouseEvent& evt)
 {
     if (!mTrayMgr->isDialogVisible())
         core->injectMouseMove(evt);
+    CEGUI::System::getSingleton().injectMouseMove(evt.state.X.rel, evt.state.Y.rel);
+    CEGUI::System::getSingleton().injectMouseWheelChange(evt.state.Z.rel);
     return BaseApplication::mouseMoved(evt);
 }
 
