@@ -214,7 +214,7 @@ void GameCore::updateBody(Real deltaTime)
 {
     mGoalDirection = Vector3::ZERO;   // we will calculate this
 
-	if (mKeyDirection != Vector3::ZERO && mBaseAnimID != ANIM_DANCE)
+    if (mKeyDirection != Vector3::ZERO && mBaseAnimID != ANIM_DANCE)
 	{
 		// calculate actually goal direction in world based on player's key directions
 		mGoalDirection += mKeyDirection.z * mCameraNode->getOrientation().zAxis();
