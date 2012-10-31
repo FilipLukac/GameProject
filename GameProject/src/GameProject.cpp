@@ -20,6 +20,7 @@ GameProject::~GameProject(void)
 bool GameProject::frameRenderingQueued(Ogre::FrameEvent const& evt)
 {
     core->addTime(evt.timeSinceLastFrame);
+    mMouseCursor->updatePosition(mMouse->getMouseState().X.abs, mMouse->getMouseState().Y.abs);
     return BaseApplication::frameRenderingQueued(evt);
 }
 
@@ -61,6 +62,10 @@ bool GameProject::mousePressed(const OIS::MouseEvent& arg, OIS::MouseButtonID id
 {
     if (!mTrayMgr->isDialogVisible())
         core->injectMouseDown(arg, id);
+    // If we pressed left or right button, show or hide cursor
+    bool pressed = id == OIS::MB_Left || id == OIS::MB_Right;
+    pressed ? mMouseCursor->setVisible(true) : mMouseCursor->setVisible(false);
+
     return BaseApplication::mousePressed(arg, id);
 }
 
@@ -111,8 +116,11 @@ void GameProject::createGrassMesh(void)
 //-------------------------------------------------------------------------------------
 void GameProject::createScene(void)
 {    
-    this->setInfoStr("TMUIHAHAHAHAHHAHAHA");
+    this->setInfoStr("Use \n WSAD to move character\n Space to jump\n Q to draw swords\n E to dance\n R to change rendering mode\n Mouse clicks to do move with swords\n");
     this->insertHelpInfo(this->getStrInfo());
+    mMouseCursor = new MouseCursor();
+    mMouseCursor->setImage("cursor.png");
+    mMouseCursor->setVisible(true);
     core->create(mCamera);
     createGrassMesh();
     mSceneMgr->setAmbientLight(Ogre::ColourValue::White);

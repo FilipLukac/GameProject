@@ -162,7 +162,7 @@ void GameCore::injectMouseDown(const OIS::MouseEvent& evt, OIS::MouseButtonID id
     if (mSwordsDrawn && (mTopAnimID == ANIM_IDLE_TOP || mTopAnimID == ANIM_RUN_TOP))
     {
 	    // if swords are out, and character's not doing something weird, then SLICE!
-        if (id == OIS::MB_Left) 
+        if (id == OIS::MB_Left)
             setTopAnimation(ANIM_SLICE_VERTICAL, true);
 
         else if (id == OIS::MB_Right) 
@@ -180,13 +180,11 @@ void GameCore::setupBody(SceneManager *sceneMgr)
     mBodyNode->attachObject(mBodyEnt);
 
     // create swords and attach to sheath
-    LogManager::getSingleton().logMessage("Creating swords");
     mSword1 = sceneMgr->createEntity("SinbadSword1", "Sword.mesh");
     mSword2 = sceneMgr->createEntity("SinbadSword2", "Sword.mesh");
     mBodyEnt->attachObjectToBone("Sheath.L", mSword1);
     mBodyEnt->attachObjectToBone("Sheath.R", mSword2);
 
-    LogManager::getSingleton().logMessage("Creating the chains");
     // create a couple of ribbon trails for the swords, just for fun
     NameValuePairList params;
     params["numberOfChains"] = "2";

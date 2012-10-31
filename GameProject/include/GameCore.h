@@ -32,6 +32,7 @@ public:
     void injectKeyUp(const OIS::KeyEvent& evt);
     void injectMouseMove(const OIS::MouseEvent& evt);
     void injectMouseDown(const OIS::MouseEvent& evt, OIS::MouseButtonID id);
+    void showCursor(bool show);
 
 private:
 
