@@ -3,6 +3,8 @@
 
 #include "Global.h"
 #include <iostream>
+#include <map>
+#include <unordered_map>
 
 enum serverOpcodes
 {
@@ -24,15 +26,12 @@ struct PlayerPosition
 
 struct PlayerData
 {
-    int id;
-
     uint32 health;
     uint32 mana;
-
-    char *name;
-
     PlayerPosition pos;
 };
+
+typedef std::map<uint32, char*> PlayerMap;
 
 class GameProjectServer
 {
@@ -52,6 +51,8 @@ public:
 
     GameProjectServer();
     virtual ~GameProjectServer();
+private:
+    PlayerMap m_playerMap;
 };
 
 
