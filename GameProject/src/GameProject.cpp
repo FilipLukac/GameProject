@@ -23,6 +23,12 @@ bool GameProject::frameRenderingQueued(Ogre::FrameEvent const& evt)
 {
     core->addTime(evt.timeSinceLastFrame);
     mMouseCursor->updatePosition(mMouse->getMouseState().X.abs, mMouse->getMouseState().Y.abs);
+    PlayerData data;
+
+    data.pos.x = core->getBodyNode()->getPosition().x;
+    data.pos.y = core->getBodyNode()->getPosition().y;
+    data.pos.z = core->getBodyNode()->getPosition().z;
+
     return BaseApplication::frameRenderingQueued(evt);
 }
 

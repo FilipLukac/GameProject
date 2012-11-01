@@ -34,6 +34,8 @@ public:
     void injectMouseDown(const OIS::MouseEvent& evt, OIS::MouseButtonID id);
     void showCursor(bool show);
 
+    SceneNode* getBodyNode() { return mBodyNode; }
+
 private:
 
     enum AnimID

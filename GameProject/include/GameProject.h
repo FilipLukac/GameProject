@@ -11,6 +11,19 @@
 #include "../res/resource.h"
 #endif
 
+struct PlayerPosition
+{
+    Ogre::Real x;
+    Ogre::Real y;
+    Ogre::Real z;
+};
+
+struct PlayerData
+{
+    uint32 health;
+    uint32 mana;
+    PlayerPosition pos;
+};
 
 class GameProject : public BaseApplication
 {
