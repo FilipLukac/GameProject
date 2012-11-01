@@ -47,9 +47,10 @@ public:
     void HandleLogoutWorld(/*Packet *data*/);
     void HandleUsernameAndPassword(/*Packet *data*/);
 
+    inline uint32 getMSTimeDiff(uint32 oldMSTime, uint32 newMSTime);
+
 
     GameProjectServer();
-    ~GameProjectServer();
 private:
     PlayerMap m_playerMap;
 };
