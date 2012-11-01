@@ -4,7 +4,6 @@
 #include "Global.h"
 #include <iostream>
 #include <map>
-#include <unordered_map>
 
 enum serverOpcodes
 {
@@ -50,7 +49,7 @@ public:
 
 
     GameProjectServer();
-    virtual ~GameProjectServer();
+    ~GameProjectServer();
 private:
     PlayerMap m_playerMap;
 };
