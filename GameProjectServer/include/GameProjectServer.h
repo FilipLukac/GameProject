@@ -2,6 +2,7 @@
 #define __GAMEPROJECT_SERVER__
 
 #include "Global.h"
+#include <iostream>
 
 enum serverOpcodes
 {
@@ -23,22 +24,26 @@ struct PlayerPosition
 
 struct PlayerData
 {
+    int id;
+
     uint32 health;
     uint32 mana;
 
+    char *name;
+
     PlayerPosition pos;
-
 };
-
 
 class GameProjectServer
 {
 public:
 
+
+    void LoadPlayerData();
+
     void HandleChangedHp(/*Packet *data*/);
     void HandleChangedMana(/*Packet *data*/);
     void HandleChangePosition(/*Packet *data*/);
-
 
     void HandleLoginInWorld(/*Packet *data*/);
     void HandleLogoutWorld(/*Packet *data*/);
@@ -47,7 +52,7 @@ public:
 
     GameProjectServer();
     virtual ~GameProjectServer();
-}
+};
 
 
 #endif
