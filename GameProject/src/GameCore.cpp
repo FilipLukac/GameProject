@@ -2,6 +2,7 @@
     Tato kniznica je nasa vlastna
     - Bola vyvinuta pre lahsie manipulovanie
     - Cas pocatia prac na projekte 2.10.2012~
+	- LOL
 */
 
 #include "GameCore.h"
