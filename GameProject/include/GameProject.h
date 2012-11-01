@@ -22,6 +22,9 @@ public:
     Ogre::NameValuePairList& getInfo() { return m_info; }
     void setInfoStr(Ogre::String str) { m_strInfo = str; }
     Ogre::String getStrInfo() const { return m_strInfo; }
+    
+    // Return pointer on GameCore
+    GameCore* getGameCorePtr() { return core; }
 
 private:
     Ogre::String getValueFromKey(Ogre::NameValuePairList& list, Ogre::String& key);
@@ -38,8 +41,8 @@ protected:
 
     void insertHelpInfo(Ogre::String& str) { m_info["Help"] = str; }
     // custom variables
-    GameCore *core;
 
+    GameCore *core;
     // Help dialog
     Ogre::NameValuePairList m_info;
     Ogre::String m_strInfo;
