@@ -1,6 +1,8 @@
 #ifndef __GLOBAL__
 #define __GLOBAL__
 
+#include <climits>
+
 #if UCHAR_MAX == 0xFF
     typedef unsigned char uint8;
     typedef char int8;
