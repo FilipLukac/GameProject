@@ -207,6 +207,10 @@
 				RelativePath=".\src\GameProject.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\src\TextField.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -231,6 +235,10 @@
 			</File>
 			<File
 				RelativePath=".\res\Resource.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\TextField.h"
 				>
 			</File>
 		</Filter>

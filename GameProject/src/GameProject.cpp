@@ -1,6 +1,7 @@
 #include "GameProject.h"
 #include "SdkCameraMan.h"
 #include "SdkSample.h"
+#include "TextField.h"
 
 using namespace Ogre;
 using namespace OgreBites;
@@ -28,6 +29,8 @@ bool GameProject::frameRenderingQueued(Ogre::FrameEvent const& evt)
     data.pos.x = core->getBodyNode()->getPosition().x;
     data.pos.y = core->getBodyNode()->getPosition().y;
     data.pos.z = core->getBodyNode()->getPosition().z;
+
+    TextField::getSingleton().repeat(evt.timeSinceLastFrame);
 
     return BaseApplication::frameRenderingQueued(evt);
 }
@@ -124,6 +127,11 @@ void GameProject::createGrassMesh(void)
 //-------------------------------------------------------------------------------------
 void GameProject::createScene(void)
 {    
+    // Call singleton for textBox
+    TextField::getSingleton().init();
+    TextField::getSingleton().addText("TEEEST");
+
+    // Init Help info
     this->setInfoStr("Use \n WSAD to move character\n Space to jump\n Q to draw swords\n E to dance\n R to change rendering mode\n Mouse clicks to do move with swords\n");
     this->insertHelpInfo(this->getStrInfo());
     mMouseCursor = new MouseCursor();

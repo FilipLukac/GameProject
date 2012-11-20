@@ -4,8 +4,6 @@
 #include "BaseApplication.h"
 #include "GameCore.h"
 #include "SdkSample.h"
-#include <CEGUI.h>
-#include <RendererModules/Ogre/CEGUIOgreRenderer.h>
 #include "MouseCursor.h"
 #if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
 #include "../res/resource.h"
