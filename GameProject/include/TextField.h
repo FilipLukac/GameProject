@@ -16,7 +16,7 @@ public:
     void repeat(Ogre::Real time);
 
 protected:
-    enum
+    enum eConstants
     {
         POSITION_TOP_X = 5,
         POSITION_TOP_Y = 30,
