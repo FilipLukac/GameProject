@@ -28,9 +28,6 @@ protected:
     Ogre::OverlayElement* mTextBox[3];
     Ogre::Real mTimeToGo;
     bool mJustAdded;
-
-    bool justAdded;
-
 };
 
 #endif
